@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Text Translator</h1>
+<h1>You entered: {{ data }}</h1>
+<form action="/translate" method="POST">
+	<p>
+		<label for="text">Text to be translated:</label>
+		<input type="text" name="text">
+	</p><input type="submit" name="submit_text">
+</form>
+{% endblock %}
