@@ -6,7 +6,7 @@ COPY . /app
 EXPOSE 5000
 ENV PORT 5000
 ENV WEB_SERVER=true
-ENV GOOGLE_APPLICATION_CREDENTIALS=avemundusproiectus-1e825e504dca.json
+ENV GOOGLE_APPLICATION_CREDENTIALS=gcloud-service-key.json
 WORKDIR /app
 
 # RUN pip install -r requirements.txt
