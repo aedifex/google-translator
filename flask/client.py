@@ -58,16 +58,11 @@ args = parser.parse_args()
 
 if args.command == "translate-text":
 	if args.speak:
-		os.system("say " + str(translate_text("en", args.text)))
+		os.system("say " + str(translate_text("la", args.text)))
 	else:
 		print(translate_text("en", args.text))
-elif args.d:
-	data_file = open(file_name)
-	try:
-		data = json.loads(data_file)
-	except ValueError as e:
-		print(e)
-	print(translate_text("en", data))
+else:
+	print("Need to enter a command...")
 
 # Web Server
 app = Flask(__name__)
@@ -81,7 +76,7 @@ def translate_api():
 	if len(request.form) > 0:
 		query = request.form["text"]
 	else:
-		query = "defaultus"
+		query = ""
 	return render_template("index.html", data=translate_text("en", query))
 
 if WEB_SERVER:
