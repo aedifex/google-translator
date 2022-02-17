@@ -56,18 +56,23 @@ parser.add_argument("-d")
 
 args = parser.parse_args()
 
+# We're translating from English
+# to Latin. Next iteration we'll
+# update the code to do both.
+target_language = "la"
+
 if args.command == "translate-text":
 	if args.speak:
-		os.system("say " + str(translate_text("la", args.text)))
+		os.system("say " + str(translate_text(target_language, args.text)))
 	else:
-		print(translate_text("en", args.text))
+		print(translate_text(target_language, args.text))
 else:
 	print("Need to enter a command...")
 
 # Web Server
 app = Flask(__name__)
 
-@app.route('/translate', methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def translate_api():
 	# Returns a dictionary
 	data = request.get_json()
