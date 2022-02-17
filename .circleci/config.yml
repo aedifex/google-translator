@@ -50,7 +50,7 @@ jobs:
           unauthenticated: true
       - run:
           name: Display Service URL
-          command: echo "Service domain found at \"https://$(gcloud beta run domain-mappings list --region us-west1 | awk 'FNR == 2 {print $2}')"\"
+          command: echo "Service domain found at \"https://$(gcloud beta run domain-mappings list --region us-west1 --platform managed | awk 'FNR == 2 {print $2}')"\"
 workflows:
   build_test_deploy:
     jobs:
