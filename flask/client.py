@@ -82,7 +82,7 @@ def translate_api():
 		query = request.form["text"]
 	else:
 		query = ""
-	return render_template("index.html", data=translate_text("en", query))
+	return render_template("index.html", data=translate_text(target_language, query))
 
 if WEB_SERVER:
 	app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT",1989)))
